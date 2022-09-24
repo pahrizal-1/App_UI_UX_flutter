@@ -1,6 +1,7 @@
 import 'package:app_muscik/pages/album_page.dart';
 import 'package:app_muscik/theme/colors.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:app_muscik/json/songs_json.dart';
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: const [
             Text(
               'Explore',
               style: TextStyle(fontWeight: FontWeight.bold),
@@ -99,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 30,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -240,13 +241,14 @@ class _HomePageState extends State<HomePage> {
                           child: GestureDetector(
                             onTap: () {
                               Navigator.push(
-                                  context,
-                                  PageTransition(
-                                      alignment: Alignment.bottomCenter,
-                                      child: AlbumPage(
-                                        song: songs[index + 5],
-                                      ),
-                                      type: PageTransitionType.scale));
+                                context,
+                                PageTransition(
+                                    alignment: Alignment.bottomCenter,
+                                    child: AlbumPage(
+                                      song: songs[index + 5],
+                                    ),
+                                    type: PageTransitionType.scale),
+                              );
                             },
                             child: Column(
                               children: [
